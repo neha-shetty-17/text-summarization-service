@@ -15,7 +15,7 @@ Spec: uses a small Hugging Face summarization model locally, logs usage to SQLit
 5. Open http://localhost:8000/docs in your browser
    - The first run will download the HF model (may take 2-5 minutes depending on internet).
    
-**📖 For detailed instructions, see [HOW_TO_RUN.md](HOW_TO_RUN.md)**
+**For detailed instructions, see [HOW_TO_RUN.md](HOW_TO_RUN.md)**
 
 ### Frontend
 1. cd frontend
