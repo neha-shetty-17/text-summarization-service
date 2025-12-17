@@ -8,8 +8,8 @@ Spec: uses a small Hugging Face summarization model locally, logs usage to SQLit
 ### Backend
 1. cd backend
 2. Activate virtual environment:
-   - Windows: `.\app\venv\Scripts\Activate.ps1`
-   - Mac/Linux: `source app/venv/bin/activate`
+   - Windows: `.\venv\Scripts\Activate.ps1`
+   - Mac/Linux: `source venv/bin/activate`
 3. Install dependencies (if needed): `pip install -r app/requirements.txt`
 4. Start server: `python -m uvicorn app.main:app --host 0.0.0.0 --port 8000`
 5. Open http://localhost:8000/docs in your browser
