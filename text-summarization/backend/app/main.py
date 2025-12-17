@@ -16,7 +16,7 @@ app = FastAPI(title="Text Summarization Service")
 # Allow frontend requests
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["http://localhost:3000"],  # React dev server
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -38,14 +38,17 @@ summarizer = pipeline(
 print("Model loaded successfully.")
 
 
-@app.post("/summarize", response_model=SummarizeResponse)
+@app.post(
+    "/summarize",
+    response_model=SummarizeResponse,
+    tags=["Summarization"]
+)
 def summarize(req: SummarizeRequest):
     if not req.text.strip():
         raise HTTPException(status_code=400, detail="Text cannot be empty")
 
     start = time.time()
 
-    # run summarizer
     result = summarizer(
         req.text,
         max_length=req.max_length,
@@ -56,14 +59,13 @@ def summarize(req: SummarizeRequest):
     exec_time = time.time() - start
     summary_text = result[0]["summary_text"]
 
-    # Save to DB
     db = SessionLocal()
     try:
         stmt = insert(logs).values(
             input_length=len(req.text),
             execution_time=exec_time,
             summary=summary_text,
-            input_text=req.text
+            input_text=req.text,
         )
         db.execute(stmt)
         db.commit()
@@ -76,11 +78,14 @@ def summarize(req: SummarizeRequest):
     return SummarizeResponse(
         summary=summary_text,
         input_length=len(req.text),
-        execution_time=exec_time
+        execution_time=exec_time,
     )
 
 
-@app.get("/history")
+@app.get(
+    "/history",
+    tags=["History"]
+)
 def get_history(limit: int = 50):
     db = SessionLocal()
     try:
@@ -90,7 +95,7 @@ def get_history(limit: int = 50):
                 logs.c.timestamp,
                 logs.c.input_length,
                 logs.c.execution_time,
-                logs.c.summary
+                logs.c.summary,
             )
             .order_by(logs.c.id.desc())
             .limit(limit)

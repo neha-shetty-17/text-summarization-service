@@ -64,7 +64,7 @@ This guide provides step-by-step instructions to run the Text Summarization Serv
 
 3. **Wait for services to start:**
    - Backend: http://localhost:8000/docs
-   - Frontend: http://localhost:3000 (if frontend is configured)
+   - Frontend: http://localhost:3000 
 
 4. **To stop:**
    ```bash
