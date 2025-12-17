@@ -1,7 +1,7 @@
 # Text Summarization Service (FastAPI + React)
 
-This repository implements the Case Study: Text Summarization Service (backend + frontend).
-Spec: uses a small Hugging Face summarization model locally, logs usage to SQLite, provides a React UI. (Spec uploaded by user.) :contentReference[oaicite:1]{index=1}
+This repository implements the Text Summarization Service (backend + frontend).
+Spec: uses a small Hugging Face summarization model locally, logs usage to SQLite, provides a React UI.
 
 ## Option A — Run locally (recommended for development)
 
