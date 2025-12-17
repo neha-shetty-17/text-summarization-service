@@ -73,6 +73,9 @@ Thumbs.db
 huggingface/
 transformers_cache/
 
+# Backend Hugging Face model cache
+text-summarization/backend/summaries_model_cache/
+
 # Docker
 .dockerignore
 
