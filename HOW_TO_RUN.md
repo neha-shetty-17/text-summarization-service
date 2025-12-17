@@ -2,14 +2,14 @@
 
 This guide provides step-by-step instructions to run the Text Summarization Service.
 
-## 📋 Prerequisites
+## Prerequisites
 
 - Python 3.11 or higher
 - pip (Python package manager)
 - Internet connection (for downloading the ML model on first run)
 - Web browser (Chrome, Firefox, Edge, etc.)
 
-## 🚀 Quick Start (Recommended)
+## Quick Start (Recommended)
 
 ### Option 1: Run Backend Only (Fastest)
 
@@ -71,7 +71,7 @@ This guide provides step-by-step instructions to run the Text Summarization Serv
    docker-compose down
    ```
 
-## 📖 How to Use the API
+## How to Use the API
 
 ### Using the Interactive Documentation (Easiest)
 
@@ -130,7 +130,7 @@ curl -X POST "http://localhost:8000/summarize" \
 curl "http://localhost:8000/history?limit=10"
 ```
 
-## 📝 API Endpoints
+## API Endpoints
 
 ### POST /summarize
 Summarize text using AI model.
@@ -172,7 +172,7 @@ Get all past summarization requests.
 ]
 ```
 
-## 🔧 Troubleshooting
+## Troubleshooting
 
 ### Server won't start
 
@@ -214,7 +214,7 @@ Get all past summarization requests.
 - Activate the virtual environment
 - Reinstall requirements: `pip install -r app/requirements.txt`
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 text-summarization/
@@ -232,7 +232,7 @@ text-summarization/
 └── README.md               # Project overview
 ```
 
-## 🎯 Quick Test Examples
+## Quick Test Examples
 
 ### Example 1: Summarize a paragraph
 ```json
@@ -252,7 +252,7 @@ text-summarization/
 }
 ```
 
-## ✅ Verification Checklist
+## Verification Checklist
 
 - [ ] Server starts without errors
 - [ ] Can access http://localhost:8000/docs
@@ -260,14 +260,8 @@ text-summarization/
 - [ ] GET /history returns past summaries
 - [ ] Database file (summaries.db) is created
 
-## 🆘 Need Help?
 
-1. Check the server logs for error messages
-2. Verify all dependencies are installed
-3. Ensure Python version is 3.11+
-4. Check firewall/antivirus isn't blocking port 8000
-
-## 📌 Important Notes
+## Important Notes
 
 - **First run:** Model download takes 2-5 minutes
 - **Database:** Created automatically in `backend/summaries.db`
